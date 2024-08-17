@@ -1,0 +1,48 @@
+{
+  "name": "drizzle-graphql-server",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "serverless offline --config dev.serverless.yml",
+    "deploy:dev": "serverless deploy --config dev.serverless.yml",
+    "deploy:prod": "serverless deploy --config prod.serverless.yml",
+    "remove:dev": "serverless remove --config dev.serverless.yml",
+    "remove:prod": "serverless remove --config prod.serverless.yml",
+    "generate": "drizzle-kit generate",
+    "push": "drizzle-kit push",
+    "studio": "drizzle-kit studio --port 3333",
+    "migrate": "drizzle-kit generate --schema=./src/schemas/*",
+    "format": "prettier --write \"**/*.{ts,gql}\"",
+    "format:check": "prettier --check \"**/*.{ts,gql}\"",
+    "lint": "eslint \"**/*.{ts,js}\"",
+    "lint:fix": "eslint --fix \"**/*.{ts,js}\"",
+    "clean": "rm -rf dist undefined/"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@types/graphql": "^14.5.0",
+    "@types/node": "^22.2.0",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.2",
+    "drizzle-kit": "^0.22.7",
+    "eslint": "9.x",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3",
+    "serverless": "^4.1.21",
+    "serverless-offline": "^14.0.0",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.1.0"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.11.0",
+    "@as-integrations/aws-lambda": "^3.1.0",
+    "@t3-oss/env-core": "^0.11.0",
+    "drizzle-graphql": "^0.8.4",
+    "drizzle-orm": "^0.33.0",
+    "graphql": "^16.9.0",
+    "postgres": "^3.4.4",
+    "uuidv4": "^6.2.13",
+    "zod": "^3.23.8"
+  }
+}

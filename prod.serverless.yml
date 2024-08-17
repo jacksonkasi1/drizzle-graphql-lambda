@@ -1,0 +1,28 @@
+service: drizzle-graphql
+
+plugins:
+  - serverless-offline # used for local execution
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ap-south-1
+  stage: prod
+  timeout: 30 # repository wide Lambda timeout
+  memorySize: 1024 # repository wide Lambda memory size
+  environment: # repository wide Lambda env variables
+    DATABASE_URL:
+    APP_ACCESS_KEY_ID:
+    APP_SECRET_ACCESS_KEY:
+    APP_REGION:
+    APP_BUCKET_NAME:
+    NODE_ENV: production
+
+functions:
+  server:
+    handler: ./src/index.handler
+    events:
+      - http:
+          path: /
+          method: any # Allow all HTTP methods (GET, POST, PUT, DELETE, etc.)
+          cors: true # Enable CORS for the function
